@@ -1,58 +1,162 @@
-# Dotfiles
+# Dotfiles (Adapted from [Nicolas Gallagher’s](https://github.com/necolas/dotfiles))
 
 My OS X dotfiles.
 
-## Getting started
+## How to install
 
-### Prerequisites
-
-* Git (1.7+)
-* Vim (7.3+) - I use MacVim installed with Homebrew
-
-### Installation
-
-This will create symlinks for most of the files and the `vim` directory.
-The `.gitconfig` file is copied to the HOME directory so that any private git 
-configuration taking place in `~/.extra` is not accidentally committed.
+The installation step requires the [XCode Command Line
+Tools](https://developer.apple.com/downloads) and may overwrite existing
+dotfiles in your HOME directory.
 
 ```bash
-git clone git://github.com/necolas/dotfiles.git ~/.dotfiles
-cd ~/.dotfiles
-bash bootstrap.sh
+$ bash -c "$(curl -fsSL raw.github.com/Wilto/dotfiles/master/bin/dotfiles)"
 ```
 
-N.B. This will overwrite any existing dotfiles in your HOME and `.vim` 
-directories that have the same names as those found in this repository.
+N.B. If you wish to fork this project and maintain your own dotfiles, you must
+substitute my username for your own in the above command and the 2 variables
+found at the top of the `bin/dotfiles` script.
 
-### Updating
+## How to update
 
-This must be done whenever you make a change to `.gitconfig` or pull 
-from the remote repo.
+You should run the update when:
+
+* You make a change to `~/.dotfiles/git/gitconfig` (the only file that is
+  copied rather than symlinked).
+* You want to pull changes from the remote repository.
+* You want to update Homebrew formulae and Node packages.
+
+Run the dotfiles command:
 
 ```bash
-cd ~/.dotfiles
-bash bootstrap.sh
+$ dotfiles
 ```
 
+Options:
 
-## Custom OS X defaults
+<table>
+    <tr>
+        <td><code>-h</code>, <code>--help</code></td>
+        <td>Help</td>
+    </tr>
+    <tr>
+        <td><code>-l</code>, <code>--list</code></td>
+        <td>List of additional applications to install</td>
+    </tr>
+    <tr>
+        <td><code>--no-packages</code></td>
+        <td>Suppress package updates</td>
+    </tr>
+    <tr>
+        <td><code>--no-sync</code></td>
+        <td>Suppress pulling from the remote repository</td>
+    </tr>
+</table>
 
-When setting up a new Mac, you may want to customise your OS X defaults after 
-installing the dotfiles.
+
+## Features
+
+### Automatic software installation
+
+Homebrew formulae:
+
+* GNU core utilities
+* [git](http://git-scm.com/)
+* [ack](http://betterthangrep.com/)
+* [bash-completion](http://bash-completion.alioth.debian.org/)
+* jpeg
+* [node](http://nodejs.org/)
+* [optipng](http://optipng.sourceforge.net/)
+* [phantomjs](http://phantomjs.org/)
+* [tree](http://mama.indstate.edu/users/ice/tree/)
+* [wget](http://www.gnu.org/software/wget/)
+
+Node packages:
+
+* [grunt](http://gruntjs.com/)
+* [jshint](http://www.jshint.com/)
+
+N.B. If your pre-existing Homebrew installation is not in `/usr/local` then you
+must prepend your custom installation's `bin` to the PATH in
+`.bash_profile.local`:
 
 ```bash
-bash .osx
+# Add `brew` command's custom location to PATH
+PATH="/opt/acme/bin:$PATH"
 ```
 
+### Custom OS X defaults
 
-## Adding custom commands
+Custom OS X settings can be applied during the `dotfiles` process. They can
+also be applied independently by running the following command:
 
-You can use a `~/.extra` file to add custom commands without the need to fork 
-this repository, or to add commands that you don’t want to commit to a public 
-repository. If `~/.extra` exists, it will be sourced for inclusion in 
-`bash_profile`.
+```bash
+$ osxdefaults
+```
 
-Here is an example `~/.extra`:
+### Bootable backup-drive script
+
+These dotfiles include a script that will incrementally back up your data to an
+external, bootable clone of your computer's internal drive. First, make sure
+that the value of `DST` in the `bin/backup` script matches the name of your
+backup-drive. Then run the following command:
+
+```bash
+$ backup
+```
+
+For more information on how to setup your backup-drive, please read the
+preparatory steps in this post on creating a [Mac OS X bootable backup
+drive](http://nicolasgallagher.com/mac-osx-bootable-backup-drive-with-rsync/).
+
+### Custom bash prompt
+
+I use a custom bash prompt based on the Solarized color palette and influenced
+by @gf3's and @cowboy's custom prompts. For best results, you should install
+iTerm2 and import [Solarized
+Dark.itermcolors](https://github.com/altercation/solarized/tree/master/iterm2-colors-solarized).
+
+When your current working directory is a Git repository, the prompt will
+display the checked-out branch's name (and failing that, the commit SHA that
+HEAD is pointing to). The state of the working tree is reflected in the
+following way:
+
+<table>
+    <tr>
+        <td><code>+</code></td>
+        <td>Uncommitted changes in the index</td>
+    </tr>
+    <tr>
+        <td><code>!</code></td>
+        <td>Unstaged changes</td>
+    </tr>
+    <tr>
+        <td><code>?</code></td>
+        <td>Untracked files</td>
+    </tr>
+    <tr>
+        <td><code>$</code></td>
+        <td>Stashed files</td>
+    </tr>
+</table>
+
+Further details are in the `bash_prompt` file.
+
+Screenshot:
+
+![](http://i.imgur.com/DSJ1G.png)
+
+### Local and private configurations
+
+Any special-case Vim directives local to a machine should be stored in a
+`.vimrc.local` file on that machine. The directives will then be automatically
+imported into your master `.vimrc`.
+
+Any private and custom commands should be stored in a `~/.bash_profile.local`
+file. Any commands included in this file will not be under version control or
+committed to a public repository. If `~/.bash_profile.local` exists, it will be
+sourced for inclusion in `bash_profile`.
+
+Here is an example `~/.bash_profile.local`:
 
 ```bash
 # PATH exports
@@ -60,39 +164,32 @@ PATH=$PATH:~/.gem/ruby/1.8/bin
 export PATH
 
 # Git credentials
-# Not under version control to prevent people from accidentally
-# committing with your details
+# Not under version control to prevent people from
+# accidentally committing with your details
 GIT_AUTHOR_NAME="Nicolas Gallagher"
 GIT_AUTHOR_EMAIL="nicolas@example.com"
 GIT_COMMITTER_NAME="$GIT_AUTHOR_NAME"
 GIT_COMMITTER_EMAIL="$GIT_AUTHOR_EMAIL"
-# Set these credentials in ~/.gitconfig
+# Set the credentials (modifies ~/.gitconfig)
 git config --global user.name "$GIT_AUTHOR_NAME"
 git config --global user.email "$GIT_AUTHOR_EMAIL"
 ```
 
-
-## Custom bash prompt
-
-I use a custom bash prompt based on the Solarized color palette and influenced by @gf3's and @cowboy's custom prompts. Details are in the `bash_prompt` file.
-
-Screenshot:
-
-![](http://i.imgur.com/DSJ1G.png)
+The `git/gitconfig` file is copied to `~/.gitconfig`, so any private git
+configuration specified in `~/.bash_profile.local` will not be committed to
+your dotfiles repository.
 
 
 ## Adding new git submodules
 
-If you want to add more git submodules, e.g. vim plugins to be managed by 
+If you want to add more git submodules, e.g., Vim plugins to be managed by
 pathogen, then follow these steps while in the root of the superproject.
 
 ```bash
 # Add the new submodule
-git submodule add git://example.com/remote/path/to/repo.git vim/bundle/one-submodule
-# Initialize the submodule
-git submodule init
-# Clone the submodule
-git submodule update
+git submodule add https://example.com/remote/path/to/repo.git vim/bundle/one-submodule
+# Initialize and clone the submodule
+git submodule update --init
 # Stage the changes
 git add vim/bundle/one-submodule
 # Commit the changes
@@ -121,9 +218,9 @@ git commit -m "Update submodule 'one-submodule' to the latest version"
 git push origin master
 ```
 
-Now, if anyone updates their local repository from the remote repository, then 
-using `git submodule update` will update the submodules (that have been 
-initialized) in their local repository. N.B This will wipe away any local 
+Now, if anyone updates their local repository from the remote repository, then
+using `git submodule update` will update the submodules (that have been
+initialized) in their local repository. N.B This will wipe away any local
 changes made to those submodules.
 
 
@@ -131,7 +228,11 @@ changes made to those submodules.
 
 Inspiration and code was taken from many sources, including:
 
-* [@mathiasbynens](https://github.com/mathiasbynens) (Mathias Bynens) [https://github.com/mathiasbynens/dotfiles](https://github.com/mathiasbynens/dotfiles)
-* [@tejr](https://github.com/tejr) (Tom Ryder) [https://github.com/tejr/dotfiles](https://github.com/tejr/dotfiles)
-* [@gf3](https://github.com/gf3) (Gianni Chiappetta) [https://github.com/gf3/dotfiles](https://github.com/gf3/dotfiles)
-* [@cowboy](https://github.com/cowboy) (Ben Alman) [https://github.com/cowboy/dotfiles](https://github.com/cowboy/dotfiles)
+* [@mathiasbynens](https://github.com/mathiasbynens) (Mathias Bynens)
+  [https://github.com/mathiasbynens/dotfiles](https://github.com/mathiasbynens/dotfiles)
+* [@tejr](https://github.com/tejr) (Tom Ryder)
+  [https://github.com/tejr/dotfiles](https://github.com/tejr/dotfiles)
+* [@gf3](https://github.com/gf3) (Gianni Chiappetta)
+  [https://github.com/gf3/dotfiles](https://github.com/gf3/dotfiles)
+* [@cowboy](https://github.com/cowboy) (Ben Alman)
+  [https://github.com/cowboy/dotfiles](https://github.com/cowboy/dotfiles)
