@@ -1,0 +1,12 @@
+#!/bin/bash
+
+p () { 
+    cd `find ~/Sites -name $1 -type d -maxdepth 3`
+    sublime .
+    clear
+    git status
+    tabname $1;
+}
+tabname ()  { 
+	echo -ne "\033]0;"$1"\007"
+}
