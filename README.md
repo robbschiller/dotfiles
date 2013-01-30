@@ -143,7 +143,7 @@ Further details are in the `bash_prompt` file.
 
 Screenshot:
 
-![](http://i.imgur.com/DSJ1G.png)
+![](http://wil.to/screenshot.png)
 
 ### Local and private configurations
 
