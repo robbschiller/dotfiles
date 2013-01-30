@@ -183,8 +183,7 @@ your dotfiles repository.
 
 Inspiration and code was taken from many sources, including:
 
-* Again: this is basically a simplified and tweaked version of [@necolas](https://github.com/necolas)’s dotfiles. If you’re Vim inclined, check out his dotfiles repo at [https://github.com/necolas/dotfiles](https://github.com/necolas/dotfiles).
-[https://github.com/mathiasbynens/dotfiles](https://github.com/mathiasbynens/dotfiles)
+* Again: this is basically a simplified and tweaked version of [@necolas](https://github.com/necolas)’s dotfiles. Check out his dotfiles repo at [https://github.com/necolas/dotfiles](https://github.com/necolas/dotfiles), especially if you’re Vim-inclined.
 * [@mathiasbynens](https://github.com/mathiasbynens) (Mathias Bynens)
   [https://github.com/mathiasbynens/dotfiles](https://github.com/mathiasbynens/dotfiles)
 * [@tejr](https://github.com/tejr) (Tom Ryder)
