@@ -5,8 +5,8 @@ p () {
     sublime .
     clear
     git status
-    tabname $1;
+    tab $1
 }
-tabname ()  { 
-	echo -ne "\033]0;"$1"\007"
+tab ()  { 
+	echo -ne "\033]0;"$@"\007"
 }
