@@ -166,8 +166,8 @@ export PATH
 # Git credentials
 # Not under version control to prevent people from
 # accidentally committing with your details
-GIT_AUTHOR_NAME="Nicolas Gallagher"
-GIT_AUTHOR_EMAIL="nicolas@example.com"
+GIT_AUTHOR_NAME="Muscles McTouchdown"
+GIT_AUTHOR_EMAIL="muscles@example.com"
 GIT_COMMITTER_NAME="$GIT_AUTHOR_NAME"
 GIT_COMMITTER_EMAIL="$GIT_AUTHOR_EMAIL"
 # Set the credentials (modifies ~/.gitconfig)
@@ -179,55 +179,12 @@ The `git/gitconfig` file is copied to `~/.gitconfig`, so any private git
 configuration specified in `~/.bash_profile.local` will not be committed to
 your dotfiles repository.
 
-
-## Adding new git submodules
-
-If you want to add more git submodules, e.g., Vim plugins to be managed by
-pathogen, then follow these steps while in the root of the superproject.
-
-```bash
-# Add the new submodule
-git submodule add https://example.com/remote/path/to/repo.git vim/bundle/one-submodule
-# Initialize and clone the submodule
-git submodule update --init
-# Stage the changes
-git add vim/bundle/one-submodule
-# Commit the changes
-git commit -m "Add a new submodule: one-submodule"
-```
-
-
-## Updating git submodules
-
-Updating individual submodules within the superproject:
-
-```bash
-# Change to the submodule directory
-cd vim/bundle/one-submodule
-# Checkout the desired branch (of the submodule)
-git checkout master
-# Pull from the tip of master (of the submodule - could be any sha or pointer)
-git pull origin master
-# Go back to main dotfiles repo root
-cd ../../..
-# Stage the submodule changes
-git add vim/bundle/one-submodule
-# Commit the submodule changes
-git commit -m "Update submodule 'one-submodule' to the latest version"
-# Push to a remote repository
-git push origin master
-```
-
-Now, if anyone updates their local repository from the remote repository, then
-using `git submodule update` will update the submodules (that have been
-initialized) in their local repository. N.B This will wipe away any local
-changes made to those submodules.
-
-
 ## Acknowledgements
 
 Inspiration and code was taken from many sources, including:
 
+* Again: this is basically a simplified and tweaked version of [@necolas](https://github.com/necolas)’s dotfiles. If you’re Vim inclined, check out his dotfiles repo at [https://github.com/necolas/dotfiles](https://github.com/necolas/dotfiles).
+[https://github.com/mathiasbynens/dotfiles](https://github.com/mathiasbynens/dotfiles)
 * [@mathiasbynens](https://github.com/mathiasbynens) (Mathias Bynens)
   [https://github.com/mathiasbynens/dotfiles](https://github.com/mathiasbynens/dotfiles)
 * [@tejr](https://github.com/tejr) (Tom Ryder)
