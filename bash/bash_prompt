@@ -112,9 +112,9 @@ prompt_git() {
 
 
 # Set the terminal title to the current working directory
-PS1="\[\033]0;\w\007\]"
+# PS1="\[\033]0;\w\007\]"
 # Build the prompt
-PS1+="\n" # Newline
+PS1="\n" # Newline
 PS1+="${style_user}\u" # Username
 PS1+="${style_chars}@" # @
 PS1+="${style_host}\h" # Host
