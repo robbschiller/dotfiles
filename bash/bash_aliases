@@ -12,7 +12,8 @@ alias ~="cd ~"
 alias -- -="cd -"
 
 # Git
-
+alias g="git"
+alias gs="git status"
 
 # List dir contents aliases
 # ref: http://ss64.com/osx/ls.html
