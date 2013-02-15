@@ -104,7 +104,17 @@ prompt_git() {
 
     # Combine the branch name and state information
     if [[ $git_state ]]; then
-        git_info="$git_info[$git_state${SOLAR_CYAN}]"
+        git_info="$git_info${SOLAR_CYAN}[$git_state${SOLAR_CYAN}]"
+    fi
+
+    # You know you’re on `gh-pages`, right? *Right*?
+    if [[ $git_info == "gh-pages" ]]; then
+        style_branch="${SOLAR_BLUE}"
+    fi
+
+    # Don’t screw up `stable`.
+    if [[ $git_info == *stable* ]]; then
+        style_branch="${SOLAR_RED}"
     fi
 
     printf "${SOLAR_WHITE} on ${style_branch}${git_info}"
