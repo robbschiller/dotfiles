@@ -145,6 +145,10 @@ Screenshot:
 
 ![](http://wil.to/screenshot.png)
 
+Also, because I would constantly find myself working on `gh-pages` despite having it right there in my prompt, I added a little color hinting on the current branch. While I was at it, I set any branch with “stable” in the name in an extra scary shade of red.
+
+![](http://wil.to/branch-hilighting.png)
+
 ### Local and private configurations
 
 Any special-case Vim directives local to a machine should be stored in a
