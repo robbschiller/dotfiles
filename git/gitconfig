@@ -5,6 +5,7 @@
     # `git gc`: cleanup unnecessary files and optimize the local repository
     # `git clean -df`: remove untracked files and directories from the working tree
     # `git stash clear`: remove all stashed states
+
     trim = !git remote prune origin && git gc
     cleanup = !git clean -df && git stash clear
 
@@ -39,6 +40,9 @@
     # color opts: normal, black, red, green, yellow, blue, magenta, cyan, or white
     ui = auto
     interactive = auto
+
+[color "diff"]
+    whitespace = red reverse
 
 [core]
     # Use custom `.gitignore` and `.gitattributes`
