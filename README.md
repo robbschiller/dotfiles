@@ -1,4 +1,4 @@
-# Dotfiles (Adapted from [Mat Marquis](https://github.com/Wilto/dotfiles) via [Nicolas Gallager](https://github.com/necolas/dotfiles)
+# Dotfiles (Adapted from [Mat Marquis](https://github.com/Wilto/dotfiles) via [Nicolas Gallager](https://github.com/necolas/dotfiles))
 
 My OS X dotfiles.
 
@@ -18,7 +18,7 @@ found at the top of the `bin/dotfiles` script.
 
 ## Changes from Mat's dotfiles
 
-- 2d Dock Disables
+- 2d Dock Disabled
 - Default dock item size 36px
 - Secure trash emptying disabled
 - Showing hard drives on the desktop disabled
