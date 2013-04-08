@@ -22,3 +22,5 @@ found at the top of the `bin/dotfiles` script.
 - Default dock item size 36px
 - Secure trash emptying disabled
 - Showing hard drives on the desktop disabled
+- Vim not set as default
+- Additional git command line aliasing gc for "git commit", ga for "git add ."
