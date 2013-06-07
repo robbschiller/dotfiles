@@ -1,6 +1,6 @@
-### Dotfiles (Adapted from [Mat Marquis](https://github.com/Wilto/dotfiles) via [Nicolas Gallager](https://github.com/necolas/dotfiles))
+# .dotfiles
 
-My OS X dotfiles.
+My OS X dotfiles (Adapted from [Mat Marquis](https://github.com/Wilto/dotfiles) via [Nicolas Gallager](https://github.com/necolas/dotfiles)).
 
 ## If you'd like to Install
 
