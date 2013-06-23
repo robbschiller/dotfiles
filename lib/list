@@ -4,34 +4,42 @@ run_list() {
 
 cat <<EOT
 
-OS X dotfiles - Nicolas Gallagher - http://nicolasgallagher.com/
+OS X dotfiles - Robb Schiller - http://robbschiller.com/
 
 Additional software to install
 
 Browsers:
     Firefox
+    FirefoxNightly
     Google Chrome
+    Google Chrome Canary
     Opera
 
 Development:
-    Filezilla
+    Xcode
+    Sublime Text 2
     iTerm 2
-    ImageAlpha
     ImageOptim
-    VirtualBox
-    XAMPP
+    Anvil
+    Mou
+
+Design:
+    LayerVault
+    Adobe CC
+    Sketch
+    Slicy
+    Skala Preview
+    LiveView
 
 Other:
     Alfred
     Divvy
+    CloudApp
     Dropbox
     Flux
     KeePassX
     LimeChat
-    Network Connect
     Skype
-    uTorrent
-    VLC
 EOT
 
 }
