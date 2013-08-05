@@ -1,0 +1,7 @@
+# launch tmux if it's not already running
+
+if [[ -x /usr/local/bin/tmux ]]; then
+  if [[ $TMUX == "" ]]; then
+    tmux -u
+  fi
+fi

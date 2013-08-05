@@ -1,0 +1,8 @@
+# Python stuff
+export PATH=$PATH:/usr/local/mysql/bin
+export DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:/usr/local/mysql/lib
+
+# Virtual Env Wrapper
+export WORKON_HOME=~/Sites/envs
+source /usr/local/bin/virtualenvwrapper.sh > /dev/null
+[[ -s /Users/robbschiller/.nvm/nvm.sh ]] && . /Users/robbschiller/.nvm/nvm.sh # This loads NVM
