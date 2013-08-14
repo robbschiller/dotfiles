@@ -1,14 +1,8 @@
-# Allow aliases to be with sudo
-alias sudo="sudo "
-
-# Easier navigation: .., ..., ~ and -
+# Nav
 alias ..="cd .."
 alias ...="cd ../.."
 alias ~="cd ~"
 alias -- -="cd -"
 
 # Git
-alias g="git"
 alias gs="git status"
-alias ga="git add ."
-alias gc="git commit"
