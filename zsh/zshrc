@@ -10,6 +10,6 @@ alias -- -="cd -"
 alias gs="git status"
 alias nvm="nvm"
 
-plugins=(git bower brew sublime python virtualenv virtualenvwrapper)
+plugins=(git tmux npm bower brew sublime python virtualenv virtualenvwrapper)
 
 source $ZSH/oh-my-zsh.sh
