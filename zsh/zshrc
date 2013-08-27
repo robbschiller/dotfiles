@@ -26,3 +26,9 @@ source /usr/local/bin/virtualenvwrapper.sh > /dev/null
 
 # NVM
 [[ -s /Users/robbschiller/.nvm/nvm.sh ]] && . /Users/robbschiller/.nvm/nvm.sh # This loads NVM
+
+if [[ -e $HOME/.dotfiles/zsh ]]; then
+  for f in $HOME/.dotfiles/zsh/*-zsh; do
+    source $f;
+  done
+fi
