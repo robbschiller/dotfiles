@@ -7,4 +7,4 @@ export WORKON_HOME=~/Sites/envs
 source /usr/local/bin/virtualenvwrapper.sh > /dev/null
 
 # Load NVM
-[[ -s /Users/robbschiller/.nvm/nvm.sh ]] && . /Users/robbschiller/.nvm/nvm.sh # This loads NVM
+[[ -s /Users/robbschiller/.nvm/nvm.sh ]] && . /Users/robbschiller/.nvm/nvm.sh

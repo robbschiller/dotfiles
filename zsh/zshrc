@@ -7,7 +7,6 @@ alias ..="cd .."
 alias ...="cd ../.."
 alias ~="cd ~"
 alias -- -="cd -"
-
 alias gs="git status"
 
 plugins=(git tmux npm bower brew sublime python virtualenvwrapper)

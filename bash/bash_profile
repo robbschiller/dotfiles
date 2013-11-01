@@ -37,7 +37,9 @@ export DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:/usr/local/mysql/lib
 # Virtual Env Wrapper
 export WORKON_HOME=~/Sites/envs
 source /usr/local/bin/virtualenvwrapper.sh > /dev/null
-[[ -s /Users/robbschiller/.nvm/nvm.sh ]] && . /Users/robbschiller/.nvm/nvm.sh # This loads NVM
+
+# This loads NVM
+[[ -s /Users/robbschiller/.nvm/nvm.sh ]] && . /Users/robbschiller/.nvm/nvm.sh
 
 # {{{
 # Node Completion - Auto-generated, do not touch.
