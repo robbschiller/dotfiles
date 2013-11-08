@@ -17,7 +17,7 @@ Browsers:
 
 Development:
     Xcode
-    Sublime Text 2
+    Sublime Text 3
     iTerm 2
     ImageOptim
     Anvil
@@ -33,11 +33,10 @@ Design:
 
 Other:
     Alfred
-    Divvy
+    Moom
     CloudApp
     Dropbox
     Flux
-    KeePassX
     LimeChat
     Skype
 EOT
