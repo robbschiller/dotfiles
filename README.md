@@ -66,6 +66,8 @@ Homebrew formulae:
 * [optipng](http://optipng.sourceforge.net/)
 * [phantomjs](http://phantomjs.org/)
 * [tree](http://mama.indstate.edu/users/ice/tree/)
+* [mongodb](http://www.mongodb.org)
+* [tmux](http://tmux.sourceforge.net)
 
 Node packages:
 
