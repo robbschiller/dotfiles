@@ -95,13 +95,6 @@ also be applied independently by running the following command:
 $ osxdefaults
 ```
 
-### Bootable backup-drive script
-
-These dotfiles include a script that will incrementally back up your data to an
-external, bootable clone of your computer's internal drive. First, make sure
-that the value of `DST` in the `bin/backup` script matches the name of your
-backup-drive. Then run the following command:
-
 ```bash
 $ backup
 ```
