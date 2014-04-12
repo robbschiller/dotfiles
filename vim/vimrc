@@ -1,4 +1,6 @@
-lent is used to suppress error messages if the config line
+" .vimrc
+
+" !silent is used to suppress error messages if the config line
 " references plugins/colorschemes that might be missing
 
 " Disable Vi compatibility
