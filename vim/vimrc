@@ -144,4 +144,4 @@ nnoremap Y y$
 " Load local machine settings if they exist
 if filereadable(glob("$HOME/.vimrc.local"))
     source $HOME/.vimrc.local
-endif:
+endif
