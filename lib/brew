@@ -28,7 +28,6 @@ run_brew() {
             'tree'
             'hub'
             'mongodb'
-            'tmux'
         )
 
         for index in ${!desired_formulae[*]}
