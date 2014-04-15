@@ -30,9 +30,6 @@ if [[ -r $bash_completion_path ]]; then
     source $bash_completion_path
 fi
 
-# This loads NVM
-[[ -s /Users/robbschiller/.nvm/nvm.sh ]] && . /Users/robbschiller/.nvm/nvm.sh
-
 # {{{
 # Node Completion - Auto-generated, do not touch.
 shopt -s progcomp

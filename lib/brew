@@ -28,6 +28,7 @@ run_brew() {
             'tree'
             'hub'
             'mongodb'
+            'postgresql'
         )
 
         for index in ${!desired_formulae[*]}

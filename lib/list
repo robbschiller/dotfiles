@@ -17,17 +17,13 @@ Browsers:
 
 Development:
     Xcode
-    Sublime Text 3
-    iTerm 2
     ImageOptim
     Anvil
     Mou
 
 Design:
     LayerVault
-    Adobe CC
     Sketch
-    Slicy
     Skala Preview
     LiveView
 
@@ -36,9 +32,8 @@ Other:
     Moom
     CloudApp
     Dropbox
-    Flux
     LimeChat
-    Skype
+
 EOT
 
 }
