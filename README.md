@@ -67,7 +67,7 @@ Homebrew formulae:
 * [phantomjs](http://phantomjs.org/)
 * [tree](http://mama.indstate.edu/users/ice/tree/)
 * [mongodb](http://www.mongodb.org)
-* [tmux](http://tmux.sourceforge.net)
+* [postgresql](https://wiki.postgresql.org/wiki/Homebrew)
 
 Node packages:
 
@@ -189,3 +189,4 @@ Inspiration and code was taken from many sources, including:
 * [@necolas](https://github.com/necolas/dotfiles) (Nicolas Gallagher)
 * [@wilto](https://github.com/Wilto/dotfiles) (Mat Marquis)
 * [@tmschl](https://github.com/tmschl/dotfiles) (Tim Schiller)
+* [@tjkrusinski](https://github.com/TJkrusinski/dotfiles) (TJ Krusinski)
