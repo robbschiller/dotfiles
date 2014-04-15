@@ -1,9 +1,0 @@
-# Nav
-alias ..="cd .."
-alias ...="cd ../.."
-alias ~="cd ~"
-alias -- -="cd -"
-alias c="clear"
-
-# Git
-alias gs="git status"
