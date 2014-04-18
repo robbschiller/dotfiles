@@ -95,14 +95,6 @@ also be applied independently by running the following command:
 $ osxdefaults
 ```
 
-```bash
-$ backup
-```
-
-For more information on how to setup your backup-drive, please read the
-preparatory steps in this post on creating a [Mac OS X bootable backup
-drive](http://nicolasgallagher.com/mac-osx-bootable-backup-drive-with-rsync/).
-
 ### Local and private configurations
 
 Any special-case Vim directives local to a machine should be stored in a
