@@ -21,12 +21,18 @@
 # Registers:
 
 # File marks:
-'0  1  0  ~/.dotfiles/README.md
+'0  1  0  ~/syntax
+'1  1  0  ~/.dotfiles/README.md
 
 # Jumplist (newest first):
+-'  1  0  ~/syntax
+-'  1  0  ~/.dotfiles/README.md
 -'  1  0  ~/.dotfiles/README.md
 
 # History of marks within files (newest to oldest):
+
+> ~/syntax
+	"	1	0
 
 > ~/.dotfiles/README.md
 	"	1	0

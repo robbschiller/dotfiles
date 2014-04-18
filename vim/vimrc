@@ -27,7 +27,7 @@ if has("syntax")
     " Enable syntax highlighting
     syntax enable
     " Set 256 color terminal support
-    set t_Co=256
+    let g:solarized_termcolors=256
     " Set dark background
     set background=dark
     " Set colorscheme
