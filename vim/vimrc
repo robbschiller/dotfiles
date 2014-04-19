@@ -1,36 +1,45 @@
+" .vimrc
 set nocompatible
 
+" set runtime location for pathogen
 runtime bundle/vim-pathogen/autoload/pathogen.vim
 
+" start pathogen
 call pathogen#infect()
 
-if has("autocmd")
+if has('autocmd')
+
   filetype on
   filetype indent on
   filetype plugin on
+
 endif
 
-if !has("gui_running")
+if !has('gui_running')
+
   let g:solarized_termtrans=1
-  if (&t_Co= >= 256 || $TERM == 'xterm-256color')
+
+  if (&t_Co >= 256 || $TERM == 'xterm-256color')
+
   else
     let g:solarized_termcolors=16
   endif
+
 endif
 
-if has("syntax")
+if has('syntax')
   syntax enable
   set background=light
   colorscheme solarized
 endif
 
-if has("cmdline_info")
+if has('cmdline_info')
   set ruler
   set showcmd
   set showmode
 endif
 
-if has("statusline")
+if has('statusline')
   set laststatus=2
   set statusline=%<%f\
   set statusline+=%w%h%m%r
