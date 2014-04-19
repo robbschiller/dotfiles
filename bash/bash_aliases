@@ -24,27 +24,14 @@ alias gl="git pull"
 # Long form no user group, color
 alias l="ls -oG"
 # Order by last modified, long form no user group, color
-alias lt="ls -toG"
+alias lm="ls -toG"
 # List all except . and ..., color, mark file types, long form no user group, file size
 alias la="ls -AGFoh"
 # List all except . and ..., color, mark file types, long form no use group, order by last modified, file size
-alias lat="ls -AGFoth"
-
-# Concatenate and print content of files (add line numbers)
-alias catn="cat -n"
-
-# Fancycat™
-alias c="pygmentize -O style=solarized -f console256 -g"
-
-# IP addresses
-alias ip='IP=`dig +short myip.opendns.com @resolver1.opendns.com`; growlnotify -s -a terminal -t "IP Address" -m "${IP}"'
-alias lip='IP=`ipconfig getifaddr en0`; growlnotify -s -a terminal -t "Local IP" -m "${IP}"'
+alias las="ls -AGFoth"
 
 # Copy my public key to the pasteboard
 alias pubkey="more ~/.ssh/id_rsa.pub | pbcopy | printf '=> Public key copied to pasteboard.\n'"
-
-# Flush DNS cache
-alias flushdns="dscacheutil -flushcache"
 
 # Empty the Trash on all mounted volumes and the main HDD
 # Also, clear Apple’s System Logs to improve shell startup speed

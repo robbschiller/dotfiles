@@ -44,3 +44,5 @@ export WORKON_HOME=~/Sites/envs
 source /usr/local/bin/virtualenvwrapper.sh > /dev/null
 
 [[ -s /Users/robbschiller/.nvm/nvm.sh ]] && . /Users/robbschiller/.nvm/nvm.sh
+
+export PATH=/local/pgsql/bin:$PATH  

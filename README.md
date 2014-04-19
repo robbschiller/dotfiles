@@ -67,7 +67,7 @@ Homebrew formulae:
 * [phantomjs](http://phantomjs.org/)
 * [tree](http://mama.indstate.edu/users/ice/tree/)
 * [mongodb](http://www.mongodb.org)
-* [tmux](http://tmux.sourceforge.net)
+* [postgresql](https://wiki.postgresql.org/wiki/Homebrew)
 
 Node packages:
 
@@ -94,14 +94,6 @@ also be applied independently by running the following command:
 ```bash
 $ osxdefaults
 ```
-
-```bash
-$ backup
-```
-
-For more information on how to setup your backup-drive, please read the
-preparatory steps in this post on creating a [Mac OS X bootable backup
-drive](http://nicolasgallagher.com/mac-osx-bootable-backup-drive-with-rsync/).
 
 ### Local and private configurations
 
@@ -189,3 +181,4 @@ Inspiration and code was taken from many sources, including:
 * [@necolas](https://github.com/necolas/dotfiles) (Nicolas Gallagher)
 * [@wilto](https://github.com/Wilto/dotfiles) (Mat Marquis)
 * [@tmschl](https://github.com/tmschl/dotfiles) (Tim Schiller)
+* [@tjkrusinski](https://github.com/TJkrusinski/dotfiles) (TJ Krusinski)
