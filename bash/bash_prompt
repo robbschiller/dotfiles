@@ -2,8 +2,6 @@
 
 # bash_prompt
 
-# Need to remove Solarized color scheme. Leaving the layout for now.
-
 if [ -e /usr/share/terminfo/x/xterm-256color ]; then
     export TERM='xterm-256color'
 fi
@@ -23,7 +21,7 @@ SOLAR_VIOLET=$(tput setaf 61)
 SOLAR_BLUE=$(tput setaf 33)
 SOLAR_CYAN=$(tput setaf 37)
 SOLAR_GREEN=$(tput setaf 64)
-SOLAR_WHITE=$(tput setaf 254)
+SOLAR_WHITE=$(tput setaf 245)
 
 style_user="\[${RESET}${SOLAR_ORANGE}\]"
 style_host="\[${RESET}${SOLAR_YELLOW}\]"
