@@ -1,0 +1,11 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =9
+let g:netrw_dirhist_1='/Users/robbschiller/Sites/quil/public/js'
+let g:netrw_dirhist_2='/Users/robbschiller/Sites/quil/public'
+let g:netrw_dirhist_3='/Users/robbschiller/Sites/quil/public/sass'
+let g:netrw_dirhist_4='/Users/robbschiller/Sites/quil/public'
+let g:netrw_dirhist_5='/Users/robbschiller/Sites/quil'
+let g:netrw_dirhist_6='/Users/robbschiller/Sites/Aloe'
+let g:netrw_dirhist_7='/Users/robbschiller/Sites'
+let g:netrw_dirhist_8='/Users/robbschiller/Sites/vim-colors-aloe/colors'
+let g:netrw_dirhist_9='/Users/robbschiller/Sites/Aloe'

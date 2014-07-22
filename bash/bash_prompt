@@ -13,15 +13,15 @@ tput sgr 0 0
 # https://github.com/altercation/solarized/tree/master/iterm2-colors-solarized
 BOLD=$(tput bold)
 RESET=$(tput sgr0)
-SOLAR_YELLOW=$(tput setaf 136)
-SOLAR_ORANGE=$(tput setaf 166)
-SOLAR_RED=$(tput setaf 124)
+SOLAR_YELLOW=$(tput setaf 228)
+SOLAR_ORANGE=$(tput setaf 210)
+SOLAR_RED=$(tput setaf 167)
 SOLAR_MAGENTA=$(tput setaf 125)
-SOLAR_VIOLET=$(tput setaf 61)
-SOLAR_BLUE=$(tput setaf 33)
-SOLAR_CYAN=$(tput setaf 37)
-SOLAR_GREEN=$(tput setaf 64)
-SOLAR_WHITE=$(tput setaf 245)
+SOLAR_VIOLET=$(tput setaf 97)
+SOLAR_BLUE=$(tput setaf 27)
+SOLAR_CYAN=$(tput setaf 116)
+SOLAR_GREEN=$(tput setaf 78)
+SOLAR_WHITE=$(tput setaf 187)
 
 style_user="\[${RESET}${SOLAR_ORANGE}\]"
 style_host="\[${RESET}${SOLAR_YELLOW}\]"

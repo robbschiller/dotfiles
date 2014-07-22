@@ -46,3 +46,4 @@ set expandtab
 set number
 set cursorline
 set nofoldenable
+let g:vim_markdown_folding_disabled=1
