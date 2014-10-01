@@ -22,8 +22,8 @@ endif
 
 if has('syntax')
   syntax enable
-  set background=light
-  colorscheme solarized
+  set background=dark
+  colorscheme aloe
 endif
 
 if has('cmdline_info')

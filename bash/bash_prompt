@@ -9,8 +9,6 @@ fi
 tput sgr 0 0
 
 # Base styles and color palette
-# Solarized colors
-# https://github.com/altercation/solarized/tree/master/iterm2-colors-solarized
 BOLD=$(tput bold)
 RESET=$(tput sgr0)
 SOLAR_YELLOW=$(tput setaf 228)
