@@ -22,3 +22,6 @@
 [submodule "vim/bundle/vim-colors-aloe"]
 	path = vim/bundle/vim-colors-aloe
 	url = git@github.com:robbschiller/vim-colors-aloe.git
+[submodule "vim/bundle/vim-less"]
+	path = vim/bundle/vim-less
+	url = https://github.com/groenewege/vim-less.git
