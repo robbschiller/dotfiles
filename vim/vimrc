@@ -13,8 +13,9 @@ if has('autocmd')
   filetype plugin on
 endif
 
-let g:solarized_termtrans=1
-let g:solarized_termcolors=256
+let g:airline_theme='sol'
+let g:airline_left_sep='▶'
+let g:airline_right_set='◀'
 
 if has('gui_running')
   set background:light
