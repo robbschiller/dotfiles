@@ -14,7 +14,7 @@ if has('autocmd')
 endif
 
 let g:airline_theme='sol'
-let g:airline_left_sep='▶'
+let g:airline_left_sep='|'
 let g:airline_right_set='◀'
 
 if has('gui_running')
