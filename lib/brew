@@ -26,9 +26,6 @@ run_brew() {
             'optipng'
             'phantomjs'
             'tree'
-            'hub'
-            'mongodb'
-            'postgresql'
         )
 
         for index in ${!desired_formulae[*]}

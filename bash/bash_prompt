@@ -18,14 +18,16 @@ SOLAR_MAGENTA=$(tput setaf 125)
 SOLAR_VIOLET=$(tput setaf 97)
 SOLAR_BLUE=$(tput setaf 27)
 SOLAR_CYAN=$(tput setaf 116)
-SOLAR_GREEN=$(tput setaf 78)
+SOLAR_GREEN=$(tput setaf 2)
 SOLAR_WHITE=$(tput setaf 187)
+CYAN=$(tput setaf 6)
+YELLOW=$(tput setaf 3)
 
 style_user="\[${RESET}${SOLAR_ORANGE}\]"
 style_host="\[${RESET}${SOLAR_YELLOW}\]"
-style_path="\[${RESET}${SOLAR_GREEN}\]"
+style_path="\[${RESET}${YELLOW}\]"
 style_chars="\[${RESET}${SOLAR_WHITE}\]"
-style_branch="${SOLAR_CYAN}"
+style_branch="${CYAN}"
 
 if [[ "$SSH_TTY" ]]; then
     # connected via ssh

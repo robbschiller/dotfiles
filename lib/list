@@ -8,24 +8,21 @@ OS X dotfiles - Robb Schiller - http://robbschiller.com/
 
 Additional software to install
 
-Browsers:
-    Firefox
-    FirefoxNightly
-    Google Chrome
-    Google Chrome Canary
-    Opera
-
 Development:
     Xcode
 
 Design:
     Sketch
+    Figma
+    Framer
+    Abstract
 
 Other:
-    Moom
-    CloudApp
     Dropbox
-    LimeChat
+    ShiftIt
+    Kap
+    Slack
+    Alfred
 
 EOT
 

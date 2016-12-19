@@ -1,11 +1,9 @@
 " .vimrc
 set nocompatible
 
-" set runtime location for pathogen
-runtime bundle/vim-pathogen/autoload/pathogen.vim
-
-" start pathogen
-call pathogen#infect()
+" set runtime location for pathogen and call it
+silent! runtime bundle/vim-pathogen/autoload/pathogen.vim
+silent! call pathogen#infect()
 
 if has('autocmd')
   filetype on
@@ -24,7 +22,6 @@ endif
 if has('syntax')
   syntax enable
   set background=dark
-  colorscheme aloe
 endif
 
 if has('cmdline_info')
