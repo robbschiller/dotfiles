@@ -7,7 +7,7 @@ run_npm() {
         e_header "Installing Node.js packages..."
 
         # List of npm packages
-        local packages="http-server gulp react-create-app"
+        local packages="http-server gulp create-react-app"
 
         # Install packages globally and quietly
         npm install $packages --global --quiet
