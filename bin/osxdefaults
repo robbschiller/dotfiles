@@ -13,7 +13,7 @@ defaults write NSGlobalDomain AppleEnableMenuBarTransparency -bool false
 /usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
 
 # Save to disk (not to iCloud) by default
-defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
+# defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
 
 # Automatically quit printer app once the print jobs complete
 defaults write com.apple.print.PrintingPrefs "Quit When Finished" -bool true
@@ -72,9 +72,6 @@ defaults write com.apple.finder EmptyTrashSecurely -bool false
 
 # Finder: disable window and Get Info animations
 defaults write com.apple.finder DisableAllAnimations -bool true
-
-# Finder: show the ~/Library folder (in OS X Lion)
-chflags nohidden ~/Library
 
 # Finder: show hidden files by default
 defaults write com.apple.finder AppleShowAllFiles -bool true
