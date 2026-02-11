@@ -1,0 +1,30 @@
+#!/bin/zsh
+
+# zsh_config
+
+# Make vim the default editor
+export EDITOR="vim"
+
+# Don't clear the screen after quitting a manual page
+export MANPAGER="less -X"
+
+# History settings
+export HISTFILE="${HOME}/.zsh_history"
+export HISTSIZE=32768
+export SAVEHIST=$HISTSIZE
+
+# Make some commands not show up in history
+export HISTIGNORE="ls:ls *:cd:cd -:pwd;exit:date:* --help"
+
+# Shell options (replacing bash shopt commands)
+setopt NO_CASE_GLOB         # Case-insensitive globbing
+setopt APPEND_HISTORY       # Append to history file
+setopt CDSPELL              # Autocorrect typos in cd paths
+setopt EXTENDED_HISTORY     # Save timestamps in history
+setopt HIST_EXPIRE_DUPS_FIRST
+setopt HIST_IGNORE_DUPS
+setopt HIST_IGNORE_SPACE
+setopt HIST_VERIFY          # Show expanded history before executing
+setopt SHARE_HISTORY        # Share history across sessions
+setopt INTERACTIVE_COMMENTS # Allow comments in interactive shell
+setopt AUTO_CD              # cd by typing directory name

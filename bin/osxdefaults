@@ -1,13 +1,10 @@
 #!/bin/bash
 
-# Set custom OS X defaults
+# Set custom macOS defaults
 # See: github.com/mathiasbynens/dotfiles
 
 # General UI/UX
 # ----------------------------------------------------------------------
-
-# Disable Menu bar transparency
-defaults write NSGlobalDomain AppleEnableMenuBarTransparency -bool false
 
 # Enable snap-to-grid for desktop icons
 /usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
@@ -36,9 +33,6 @@ defaults write com.apple.finder CreateDesktop -bool false
 # Dock
 # ----------------------------------------------------------------------
 
-# Dock: enable the 2D Dock
-defaults write com.apple.dock no-glass -bool false
-
 # Dock: set the icon size of Dock items to 36 pixels
 defaults write com.apple.dock tilesize -int 36
 
@@ -48,7 +42,7 @@ defaults write com.apple.dock show-process-indicators -bool true
 # Dock: make icons of hidden applications translucent
 defaults write com.apple.dock showhidden -bool true
 
-# Dock: don’t animate opening applications
+# Dock: don't animate opening applications
 defaults write com.apple.dock launchanim -bool false
 
 # Dock: use the scale effect for window minimizing
@@ -67,13 +61,10 @@ defaults write NSGlobalDomain AppleShowAllExtensions -bool true
 # Finder: disable the warning when changing a file extension
 defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
 
-# Finder: empty Trash securely by default
-defaults write com.apple.finder EmptyTrashSecurely -bool false
-
 # Finder: disable window and Get Info animations
 defaults write com.apple.finder DisableAllAnimations -bool true
 
-# Finder: show the ~/Library folder (in OS X Lion)
+# Finder: show the ~/Library folder
 chflags nohidden ~/Library
 
 # Finder: show hidden files by default
@@ -99,7 +90,7 @@ defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
 # Panels: expand print panel by default
 defaults write NSGlobalDomain PMPrintingExpandedStateForPrint -bool true
 
-# Panels: disable the “Are you sure you want to open this application?” dialog
+# Panels: disable the "Are you sure you want to open this application?" dialog
 defaults write com.apple.LaunchServices LSQuarantine -bool false
 
 # Panels: enable full keyboard access for all controls (e.g. enable Tab in modal dialogs)
@@ -116,9 +107,6 @@ defaults write com.apple.screensaver askForPasswordDelay -int 0
 # Screen: save screenshots to the desktop
 defaults write com.apple.screencapture location -string "$HOME/Desktop"
 
-# Screen: enable subpixel font rendering on non-Apple LCDs
-defaults write NSGlobalDomain AppleFontSmoothing -int 2
-
 
 # Disks
 # ----------------------------------------------------------------------
@@ -129,37 +117,11 @@ defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
 # Disks: disable Time Machine prompts
 defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool true
 
-# Disks: disable local Time Machine backups
-hash tmutil &> /dev/null && sudo tmutil disablelocal
-
 # Disks: disable disk image verification
 # defaults write com.apple.frameworks.diskimages skip-verify -bool true
 # defaults write com.apple.frameworks.diskimages skip-verify-locked -bool true
 # defaults write com.apple.frameworks.diskimages skip-verify-remote -bool true
 
-
-# iTunes
-# ----------------------------------------------------------------------
-
-# iTunes: make ⌘ + F focus the search input
-defaults write com.apple.iTunes NSUserKeyEquivalents -dict-add "Target Search Field" "@F"
-
-# iTunes: disable the Ping sidebar in iTunes
-defaults write com.apple.iTunes disablePingSidebar -bool true
-
-# iTunes: disable all the other Ping stuff
-defaults write com.apple.iTunes disablePing -bool true
-
-# iTunes: Increase sound quality for Bluetooth headphones/headsets
-defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Max (editable)" 80
-defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" 48
-defaults write com.apple.BluetoothAudioAgent "Apple Initial Bitpool (editable)" 40
-defaults write com.apple.BluetoothAudioAgent "Negotiated Bitpool" 48
-defaults write com.apple.BluetoothAudioAgent "Negotiated Bitpool Max" 53
-defaults write com.apple.BluetoothAudioAgent "Negotiated Bitpool Min" 48
-defaults write com.apple.BluetoothAudioAgent "Stream - Flush Ring on Packet Drop (editable)" 30
-defaults write com.apple.BluetoothAudioAgent "Stream - Max Outstanding Packets (editable)" 15
-defaults write com.apple.BluetoothAudioAgent "Stream Resume Delay" "0.75"
 
 # Misc
 # ----------------------------------------------------------------------
@@ -173,6 +135,6 @@ defaults write com.apple.spotlight DictionaryLookupEnabled -bool false
 # Misc: disable auto-correct
 defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 
-for app in "Dashboard" "Dock" "Finder" "SystemUIServer" "Terminal" "iTunes"; do
+for app in "Dock" "Finder" "SystemUIServer" "Terminal"; do
     killall "$app" > /dev/null 2>&1
 done

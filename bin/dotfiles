@@ -22,7 +22,6 @@ source ./lib/help
 source ./lib/list
 source ./lib/utils
 source ./lib/brew
-source ./lib/npm
 
 # Help text
 if [[ "$1" == "-h" || "$1" == "--help" ]]; then
@@ -57,7 +56,9 @@ fi
 # Check for Homebrew
 if ! type_exists 'brew'; then
     e_header "Installing Homebrew..."
-    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    # Add Homebrew to PATH for Apple Silicon
+    eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
 # Check for git
@@ -99,8 +100,6 @@ else
     printf "Updating packages...\n"
     # Install Homebrew formulae
     run_brew
-    # Install Node packages
-    run_npm
 fi
 
 link() {
@@ -110,7 +109,7 @@ link() {
 
 mirrorfiles() {
     # Copy `.gitconfig`.
-    # Any global git commands in `~/.bash_profile.local` will be written to
+    # Any global git commands in `~/.zshrc.local` will be written to
     # `.gitconfig`. This prevents them being committed to the repository.
     rsync -avz --quiet ${DOTFILES_DIRECTORY}/git/gitconfig  ${HOME}/.gitconfig
 
@@ -119,12 +118,23 @@ mirrorfiles() {
         rm -rf "${HOME}/.vim"
     fi
 
+    # Clean up old bash symlinks
+    for old in .bashrc .bash_profile .inputrc; do
+        if [ -L "${HOME}/${old}" ]; then
+            rm "${HOME}/${old}"
+        fi
+    done
+
+    # Backup existing ~/.zshrc if it's a real file (not a symlink)
+    if [ -f "${HOME}/.zshrc" ] && [ ! -L "${HOME}/.zshrc" ]; then
+        cp "${HOME}/.zshrc" "${HOME}/.zshrc.backup"
+        printf "Backed up existing ~/.zshrc to ~/.zshrc.backup\n"
+    fi
+
     # Create the necessary symbolic links between the `.dotfiles` and `HOME`
-    # directory. The `bash_profile` sources other files directly from the
+    # directory. The `zshrc` sources other files directly from the
     # `.dotfiles` repository.
-    link "bash/bashrc"        ".bashrc"
-    link "bash/bash_profile"  ".bash_profile"
-    link "bash/inputrc"       ".inputrc"
+    link "zsh/zshrc"          ".zshrc"
     link "git/gitattributes"  ".gitattributes"
     link "git/gitignore"      ".gitignore"
     link "vim"                ".vim"
@@ -139,18 +149,18 @@ seek_confirmation "Warning: This step may overwrite your existing dotfiles."
 
 if is_confirmed; then
     mirrorfiles
-    source ${HOME}/.bash_profile
+    printf "Please open a new terminal to apply changes.\n"
 else
     printf "Aborting...\n"
     exit 1
 fi
 
-# Ask before potentially overwriting OS X defaults
-seek_confirmation "Warning: This step may modify your OS X system defaults."
+# Ask before potentially overwriting macOS defaults
+seek_confirmation "Warning: This step may modify your macOS system defaults."
 
 if is_confirmed; then
     bash ./bin/osxdefaults
-    e_success "OS X settings updated! You may need to restart."
+    e_success "macOS settings updated! You may need to restart."
 else
-    printf "Skipped OS X settings update.\n"
+    printf "Skipped macOS settings update.\n"
 fi

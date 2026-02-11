@@ -1,15 +1,15 @@
 # .dotfiles
 
-My OS X dotfiles (Adapted from [Mat Marquis](https://github.com/Wilto/dotfiles) via [Nicolas Gallager](https://github.com/necolas/dotfiles)).
+My macOS dotfiles for zsh on Apple Silicon (arm64). Adapted from [Mat Marquis](https://github.com/Wilto/dotfiles) via [Nicolas Gallagher](https://github.com/necolas/dotfiles).
 
-## If you'd like to Install
+## Install
 
 The installation step requires the [XCode Command Line
 Tools](https://developer.apple.com/downloads) and may overwrite existing
 dotfiles in your HOME directory.
 
 ```
-$ bash -c "$(curl -fsSL raw.github.com/robbschiller/dotfiles/master/bin/dotfiles)"
+bash -c "$(curl -fsSL raw.github.com/robbschiller/dotfiles/master/bin/dotfiles)"
 ```
 
 N.B. If you wish to fork this project and maintain your own dotfiles, you must
@@ -23,34 +23,22 @@ You should run the update when:
 * You make a change to `~/.dotfiles/git/gitconfig` (the only file that is
   copied rather than symlinked).
 * You want to pull changes from the remote repository.
-* You want to update Homebrew formulae and Node packages.
+* You want to update Homebrew formulae.
 
 Run the dotfiles command:
 
 ```bash
-$ dotfiles
+dotfiles
 ```
 
 Options:
 
-<table>
-    <tr>
-        <td><code>-h</code>, <code>--help</code></td>
-        <td>Help</td>
-    </tr>
-    <tr>
-        <td><code>-l</code>, <code>--list</code></td>
-        <td>List of additional applications to install</td>
-    </tr>
-    <tr>
-        <td><code>--no-packages</code></td>
-        <td>Suppress package updates</td>
-    </tr>
-    <tr>
-        <td><code>--no-sync</code></td>
-        <td>Suppress pulling from the remote repository</td>
-    </tr>
-</table>
+| Flag | Description |
+|------|-------------|
+| `-h`, `--help` | Help |
+| `-l`, `--list` | List of additional applications to install |
+| `--no-packages` | Suppress package updates |
+| `--no-sync` | Suppress pulling from the remote repository |
 
 ## Features
 
@@ -58,41 +46,22 @@ Options:
 
 Homebrew formulae:
 
-* GNU core utilities
+* [coreutils](https://www.gnu.org/software/coreutils/) — GNU core utilities
 * [git](http://git-scm.com/)
-* [bash-completion](http://bash-completion.alioth.debian.org/)
-* jpeg
-* [node](http://nodejs.org/)
-* [optipng](http://optipng.sourceforge.net/)
-* [phantomjs](http://phantomjs.org/)
 * [tree](http://mama.indstate.edu/users/ice/tree/)
-* [mongodb](http://www.mongodb.org)
-* [postgresql](https://wiki.postgresql.org/wiki/Homebrew)
+* [jq](https://jqlang.github.io/jq/)
+* [ripgrep](https://github.com/BurntSushi/ripgrep)
+* [fd](https://github.com/sharkdp/fd)
+* [bat](https://github.com/sharkdp/bat)
+* [fzf](https://github.com/junegunn/fzf)
 
-Node packages:
+### Custom macOS defaults
 
-* [bower](http://bower.io/)
-* [grunt-cli](http://gruntjs.com/)
-* [jshint](http://www.jshint.com/)
-* [karma](http://karma-runner.github.io/)
-* [yo](http://yeoman.io/)
-
-N.B. If your pre-existing Homebrew installation is not in `/usr/local` then you
-must prepend your custom installation's `bin` to the PATH in
-`.bash_profile.local`:
-
-```bash
-# Add `brew` command's custom location to PATH
-PATH="/opt/acme/bin:$PATH"
-```
-
-### Custom OS X defaults
-
-Custom OS X settings can be applied during the `dotfiles` process. They can
+Custom macOS settings can be applied during the `dotfiles` process. They can
 also be applied independently by running the following command:
 
 ```bash
-$ osxdefaults
+osxdefaults
 ```
 
 ### Local and private configurations
@@ -101,17 +70,16 @@ Any special-case Vim directives local to a machine should be stored in a
 `.vimrc.local` file on that machine. The directives will then be automatically
 imported into your master `.vimrc`.
 
-Any private and custom commands should be stored in a `~/.bash_profile.local`
+Any private and custom commands should be stored in a `~/.zshrc.local`
 file. Any commands included in this file will not be under version control or
-committed to a public repository. If `~/.bash_profile.local` exists, it will be
-sourced for inclusion in `bash_profile`.
+committed to a public repository. If `~/.zshrc.local` exists, it will be
+sourced for inclusion in `zshrc`.
 
-Here is an example `~/.bash_profile.local`:
+Here is an example `~/.zshrc.local`:
 
-```bash
+```zsh
 # PATH exports
-PATH=$PATH:~/.gem/ruby/1.8/bin
-export PATH
+path=($HOME/.gem/ruby/3.0/bin $path)
 
 # Git credentials
 # Not under version control to prevent people from
@@ -123,14 +91,17 @@ GIT_COMMITTER_EMAIL="$GIT_AUTHOR_EMAIL"
 # Set the credentials (modifies ~/.gitconfig)
 git config --global user.name "$GIT_AUTHOR_NAME"
 git config --global user.email "$GIT_AUTHOR_EMAIL"
-
-# Export PhantomJS bin location for custom Homebrew directory
-export PHANTOMJS_BIN="$(brew --prefix)/bin/phantomjs"
 ```
 
 The `git/gitconfig` file is copied to `~/.gitconfig`, so any private git
-configuration specified in `~/.bash_profile.local` will not be committed to
+configuration specified in `~/.zshrc.local` will not be committed to
 your dotfiles repository.
+
+### Apple Silicon support
+
+This setup is designed for Apple Silicon Macs with Homebrew installed at
+`/opt/homebrew`. NVM and Bun are automatically detected and initialized
+if present.
 
 ## Adding new git submodules
 

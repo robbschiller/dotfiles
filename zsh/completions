@@ -1,0 +1,23 @@
+#!/bin/zsh
+
+# completions
+
+# Initialize completion system
+autoload -Uz compinit && compinit
+
+# Case-insensitive matching
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
+
+# Menu-driven completion
+zstyle ':completion:*' menu select
+
+# Completion caching
+zstyle ':completion:*' use-cache on
+zstyle ':completion:*' cache-path "${HOME}/.zcompcache"
+
+# Colorize completions using default `ls` colors
+zstyle ':completion:*' list-colors ''
+
+# History prefix search (Up/Down arrows)
+bindkey '^[[A' history-beginning-search-backward
+bindkey '^[[B' history-beginning-search-forward

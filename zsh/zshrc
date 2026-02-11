@@ -1,0 +1,22 @@
+#!/bin/zsh
+
+# zshrc
+
+# Source config files in order
+config_files=(
+    $HOME/.dotfiles/zsh/zsh_config      # Configuration
+    $HOME/.dotfiles/zsh/zsh_aliases      # Aliases
+    $HOME/.dotfiles/zsh/functions/*(N)   # Functions
+    $HOME/.dotfiles/zsh/zsh_prompt       # Custom zsh prompt
+    $HOME/.zshrc.local                   # Local/private settings not under version control
+    $HOME/.dotfiles/zsh/zsh_paths        # Path modifications (source after .zshrc.local)
+    $HOME/.dotfiles/zsh/completions      # Completion system
+)
+
+for file in ${config_files[@]}; do
+    if [[ -r "$file" ]]; then
+        source "$file"
+    fi
+done
+
+unset config_files

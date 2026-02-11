@@ -4,25 +4,21 @@ run_list() {
 
 cat <<EOT
 
-OS X dotfiles - Robb Schiller - http://robbschiller.com/
+macOS dotfiles - Robb Schiller - http://robbschiller.com/
 
 Additional software to install
 
 Development:
     Xcode
+    Visual Studio Code
 
 Design:
-    Sketch
     Figma
-    Framer
-    Abstract
 
 Other:
-    Dropbox
-    ShiftIt
-    Kap
     Slack
-    Alfred
+    Raycast
+    1Password
 
 EOT
 

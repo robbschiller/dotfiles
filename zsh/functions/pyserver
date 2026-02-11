@@ -1,0 +1,12 @@
+#!/bin/zsh
+
+# Start an HTTP server from a directory, optionally specifying the port
+pyserver() {
+    local port="${1:-8000}"
+
+    # Open in the browser
+    open "http://localhost:${port}/"
+
+    # Start the server
+    python3 -m http.server "$port"
+}

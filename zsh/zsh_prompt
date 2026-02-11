@@ -1,6 +1,8 @@
-#!/bin/bash
+#!/bin/zsh
 
-# bash_prompt
+# zsh_prompt
+
+setopt PROMPT_SUBST
 
 if [ -e /usr/share/terminfo/x/xterm-256color ]; then
     export TERM='xterm-256color'
@@ -23,18 +25,18 @@ SOLAR_WHITE=$(tput setaf 187)
 CYAN=$(tput setaf 6)
 YELLOW=$(tput setaf 3)
 
-style_user="\[${RESET}${SOLAR_ORANGE}\]"
-style_host="\[${RESET}${SOLAR_YELLOW}\]"
-style_path="\[${RESET}${YELLOW}\]"
-style_chars="\[${RESET}${SOLAR_WHITE}\]"
+style_user="%{${RESET}${SOLAR_ORANGE}%}"
+style_host="%{${RESET}${SOLAR_YELLOW}%}"
+style_path="%{${RESET}${YELLOW}%}"
+style_chars="%{${RESET}${SOLAR_WHITE}%}"
 style_branch="${CYAN}"
 
 if [[ "$SSH_TTY" ]]; then
     # connected via ssh
-    style_host="\[${BOLD}${SOLAR_RED}\]"
+    style_host="%{${BOLD}${SOLAR_RED}%}"
 elif [[ "$USER" == "root" ]]; then
     # logged in as root
-    style_user="\[${BOLD}${SOLAR_RED}\]"
+    style_user="%{${BOLD}${SOLAR_RED}%}"
 fi
 
 is_git_repo() {
@@ -95,12 +97,12 @@ prompt_git() {
         git_info="$git_info${SOLAR_CYAN}[$git_state${SOLAR_CYAN}]"
     fi
 
-    # You know you’re on `gh-pages`, right? *Right*?
+    # You know you're on `gh-pages`, right? *Right*?
     if [[ $git_info == "gh-pages" ]]; then
         style_branch="${SOLAR_BLUE}"
     fi
 
-    # Don’t screw up `stable`.
+    # Don't screw up `stable`.
     if [[ $git_info == *stable* ]]; then
         style_branch="${SOLAR_RED}"
     fi
@@ -108,12 +110,9 @@ prompt_git() {
     printf "${SOLAR_WHITE} on ${style_branch}${git_info}"
 }
 
-
-# Set the terminal title to the current working directory
-# PS1="\[\033]0;\w\007\]"
 # Build the prompt
-PS1="\n" # Newline
-PS1+="${style_path}\w" # Working directory
-PS1+="\$(prompt_git)" # Git details
-PS1+="\n" # Newline
-PS1+="${style_chars}\$ \[${RESET}\]" # $ (and reset color)
+PROMPT=$'\n'                              # Newline
+PROMPT+="${style_path}%~"                 # Working directory
+PROMPT+="\$(prompt_git)"                  # Git details
+PROMPT+=$'\n'                             # Newline
+PROMPT+="${style_chars}%(#.#.\$) %{${RESET}%}" # $ (and reset color)

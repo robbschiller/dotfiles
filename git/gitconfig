@@ -53,7 +53,7 @@
     helper = osxkeychain
 
 [diff]
-    tool = mvimdiff
+    tool = vimdiff
 
 [difftool]
     prompt = false
